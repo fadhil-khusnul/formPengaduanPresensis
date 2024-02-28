@@ -310,6 +310,7 @@ function SubmitForm() {
   const fakultas = selectedOption.getAttribute('data_fakultas');
 
   let program_studi = document.getElementById("program_studi").value;
+  let keterangan_kendala = document.getElementById("keterangan_kendala").value;
   let no_wa = document.getElementById("no_wa").value;
   no_wa = no_wa.replace(/[\s\-+]/g, '');
   no_wa = 'wa.me/'+ no_wa;
@@ -319,6 +320,7 @@ function SubmitForm() {
   formData.append("fakultas", fakultas);
   formData.append("program_studi", program_studi);
   formData.append("no_wa", no_wa);
+  formData.append("keterangan_kendala", keterangan_kendala);
   formData.append("tambah", tambah);
 
 

@@ -87,35 +87,42 @@
             <div class="row">
               <div class="col">
                 <div class="page-description">
-                  <h1>FORM PENGADUAN SIKOLA-V2</h1>
-                  <span>
-                    Silahkan mengisi form berikut untuk melaporkan kendala presensi, harap diperhatikan catatan di bawah
-                    sebelum mengisi :
-                  </span>
-                  <code>
-                    <ul>
-                      <li>
-                        A
-                      </li>
-                    </ul>
-                  </code>
+                  <h1>FORM PENGADUAN PRESENSI SIKOLA-V2</h1>
+
                 </div>
               </div>
             </div>
             <div class="row">
               <div class="col-md-12">
                 <div class="card">
-                  <div class="card-header">
-                    <h5 class="card-title">Form Pengaduan</h5>
-                  </div>
-                  <div class="card-body">
-                    <p class="card-description">
 
-                    </p>
+                  <div class="card-body">
+                      <span>
+                        <strong>
+
+                          Silahkan mengisi form berikut untuk melaporkan kendala presensi, harap diperhatikan catatan di
+                          bawah
+                          sebelum mengisi :
+                        </strong>
+                      </span>
+                      <code>
+
+                        <ul>
+                          <li>
+                            Perhatikan Nama MK dan Nama Kelas yang sudah dipilih sebelum di submit 
+                          </li>
+                          <li>
+                            jika ada kendala/pertanyaan silahkan hubungi kontak help desk SIKOLA-V2 
+                            <a class="link" target="_blank" rel="noopener" href="https://wa.me/6282136882823">wa.me/6282136882823</a>
+                          </li>
+                        </ul>
+                      </code>
+                        
+                    
                     <div class="example-container">
                       <div class="example-content">
 
-                        
+
                         <form class="row g-4 needs-validation" onsubmit="return SubmitForm()">
                           <div class="table-responsive">
 
@@ -143,7 +150,8 @@
                                   </td>
                                   <td>
                                     <select style="width: 100%;" class="js-states form-control select"
-                                      name="id_kelas_kuliah[1]" id="id_kelas_kuliah[1]" title="id_kelas_kuliah" required>
+                                      name="id_kelas_kuliah[1]" id="id_kelas_kuliah[1]" title="id_kelas_kuliah"
+                                      required>
                                       <option value="" selected disabled>Pilih Kelas</option>
 
                                     </select>
@@ -188,7 +196,7 @@
                             </table>
                           </div>
 
-                         
+
 
                           <div class="col-md-12 text-center">
 
@@ -201,49 +209,56 @@
                           <div class="col-md-12">
                             <label for="inputAddress" class="form-label">Program Studi</label>
 
-                            <select required class="form-select form-control select" name="program_studi" id="program_studi" title="Program Studi"
-                              >
-                              <option value=""  selected>Pilih Program Studi</option>
-    
-                            </select>
-                            
-                          </div>
+                            <select required class="form-select form-control select" name="program_studi"
+                              id="program_studi" title="Program Studi">
+                              <option value="" selected>Pilih Program Studi</option>
 
-                       
+                            </select>
+
+                          </div>
+                          <div class="col-md-12">
+                            <label for="keterangan_kendala" class="form-label">Ketrangan Kendala :</label>
+                            <textarea id="keterangan_kendala" name="keterangan_kendala" class="form-control"
+                              placeholder="Keterangan kendala"></textarea>
+                          </div>
 
 
 
                           <div class="col-md-12">
                             <label for="no_wa" class="form-label">Kontak yang bisa Dihubungi (WA)</label>
-                            <input  type="text" class="form-control" id="no_wa" name="no_wa"
-                              placeholder="No WA" required>
+                            <input type="text" class="form-control" id="no_wa" name="no_wa" placeholder="No WA"
+                              required>
 
-                              
+
 
                           </div>
 
-                     
 
-                          <div class="alert alert-custom alert-indicator-top indicator-success d-none" role="alert" id="successAlert">
+
+
+                          <div class="alert alert-custom alert-indicator-top indicator-success d-none" role="alert"
+                            id="successAlert">
                             <div class="alert-content">
-                                <span class="alert-title">Success!</span>
-                                <span class="alert-text" id="success_msg" name="success_msg"></span>
+                              <span class="alert-title">Success!</span>
+                              <span class="alert-text" id="success_msg" name="success_msg"></span>
                             </div>
-                        </div>
-                        <div class="alert alert-custom alert-indicator-bottom indicator-danger d-none" role="alert" id="errorAlert">
+                          </div>
+                          <div class="alert alert-custom alert-indicator-bottom indicator-danger d-none" role="alert"
+                            id="errorAlert">
                             <div class="alert-content">
-                                <span class="alert-title">Error!</span>
-                                <span class="alert-text" id="error_msg" name="error_msg"></span>
+                              <span class="alert-title">Error!</span>
+                              <span class="alert-text" id="error_msg" name="error_msg"></span>
                             </div>
-                        </div>
+                          </div>
                           <div class="col-12 py-4 text-end">
                             <button id="submitBtn" class="btn btn-primary" type="submit">
-                              <span id="spinner" class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                              <span id="spinner" class="spinner-border spinner-border-sm d-none" role="status"
+                                aria-hidden="true"></span>
                               <span id="btnText">Submit</span>
                             </button>
-                            </div>
+                          </div>
 
-                           
+
 
                           <!-- <div class="col-12 py-4 text-end">
                             <button type="button" class="btn btn-primary" onclick="submitForm()">Submit</button> -->
@@ -287,12 +302,12 @@
   <script src="assets/js/pages/form.js"></script>
 
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       var formSubmitted = localStorage.getItem('formSubmitted');
       if (formSubmitted === 'true') {
         var successAlert = document.getElementById('successAlert');
         var success_msg = document.getElementById("success_msg");
-        success_msg.innerText = "Pengaduan Presensi Berhasil Dilaporkan"
+        success_msg.innerText = "Pengaduan Presensi Berhasil Dilaporkan, silahkan menunggu proses sinkronisasi akan dilakukan"
         successAlert.classList.remove('d-none');
         localStorage.removeItem('formSubmitted'); // Remove the flag to prevent showing the alert again on subsequent visits
       }
