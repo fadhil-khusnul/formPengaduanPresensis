@@ -18,6 +18,7 @@ fetch('list_mk.json')
       const option = document.createElement('option');
 
       option.setAttribute('data_kode_matkul', item.kode_matkul);
+      option.setAttribute('fullname_sikola', item.fullname_sikola);
 
       option.value = item.idnumber_sikola;
       option.text = item.fullname_sikola;
@@ -50,6 +51,8 @@ fetch('list_mk.json')
             }
 
             const option = document.createElement('option');
+            option.setAttribute('fullname_kelas_sikola', item.fullname_kelas_sikola);
+
             option.value = item.id_kelas;
             option.text = item.fullname_kelas_sikola;
             groups[item.nama_prodi].appendChild(option);
@@ -163,6 +166,8 @@ async function tambah_kelas() {
         const option = document.createElement('option');
 
         option.setAttribute('data_kode_matkul', item.kode_matkul);
+        option.setAttribute('fullname_sikola', item.fullname_sikola);
+
 
         option.value = item.idnumber_sikola;
         option.text = item.fullname_sikola;
@@ -195,6 +200,8 @@ async function tambah_kelas() {
               }
 
               const option = document.createElement('option');
+              option.setAttribute('fullname_kelas_sikola', item.fullname_kelas_sikola);
+
               option.value = item.id_kelas;
               option.text = item.fullname_kelas_sikola;
               groups[item.nama_prodi].appendChild(option);
@@ -298,15 +305,34 @@ function SubmitForm() {
   const formData = new FormData();
 
   var kode_mk = [];
+  var kode_mk_fullname = [];
+  var selectedOption_kode_mk_fullname = [];
+  var fullname_sikola = [];
+
+
   var id_kelas_kuliah = [];
+
+  var id_kelas_kuliah_fullname_kelas_sikola = [];
+  var selectedOption_fullname_kelas_sikola = [];
+  var fullname_kelas_sikola = [];
+
+
   var pertemuan_ke = [];
   var tanggal_terlaksana = [];
 
   for (var i = 0; i < tambah; i++) {
 
     kode_mk[i] = document.getElementById("kode_mk[" + (i + 1) + "]").value;
+    kode_mk_fullname[i] = document.getElementById("kode_mk[" + (i + 1) + "]");
+    selectedOption_kode_mk_fullname[i] = kode_mk_fullname[i].options[kode_mk_fullname[i].selectedIndex];
+    fullname_sikola[i] = selectedOption_kode_mk_fullname[i].getAttribute('fullname_sikola');
 
     id_kelas_kuliah[i] = document.getElementById("id_kelas_kuliah[" + (i + 1) + "]").value;
+    id_kelas_kuliah_fullname_kelas_sikola[i] = document.getElementById("id_kelas_kuliah[" + (i + 1) + "]");
+    selectedOption_fullname_kelas_sikola[i] = id_kelas_kuliah_fullname_kelas_sikola[i].options[id_kelas_kuliah_fullname_kelas_sikola[i].selectedIndex];
+    fullname_kelas_sikola[i] = selectedOption_fullname_kelas_sikola[i].getAttribute('fullname_kelas_sikola');
+
+
     pertemuan_ke[i] = document.getElementById("pertemuan_ke[" + (i + 1) + "]").value;
     tanggal_terlaksana[i] = document.getElementById("tanggal_terlaksana[" + (i + 1) + "]").value;
 
@@ -314,9 +340,15 @@ function SubmitForm() {
     formData.append('id_kelas_kuliah[' + i + ']', id_kelas_kuliah[i]);
     formData.append('pertemuan_ke[' + i + ']', pertemuan_ke[i]);
     formData.append('tanggal_terlaksana[' + i + ']', tanggal_terlaksana[i]);
+
+    
+
+    formData.append('fullname_sikola[' + i + ']', fullname_sikola[i]);
+    formData.append('fullname_kelas_sikola[' + i + ']', fullname_kelas_sikola[i]);
+
   }
 
-  console.log(kode_mk);
+  console.log(fullname_sikola);
 
   const programStudiSelect = document.getElementById("program_studi");
   const selectedOption = programStudiSelect.options[programStudiSelect.selectedIndex];
