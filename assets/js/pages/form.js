@@ -112,14 +112,20 @@ async function tambah_kelas() {
 
 
   var select1 = document.createElement("select");
-  select1.innerHTML =
-    "<option selected disabled>Pilih Mata Kuliah (MK)</option>";
+  
   select1.setAttribute("id", "kode_mk[" + tambah + "]");
-  select1.setAttribute("class", "form-select form-control");
+  select1.setAttribute("class", "js-states form-control");
   select1.setAttribute("style", "width: 100%");
 
   select1.setAttribute("name", "kode_mk[" + tambah + "]");
   select1.setAttribute("required", true);
+
+  var defaultOption3 = document.createElement("option");
+  defaultOption3.setAttribute("value", "");
+  defaultOption3.setAttribute("selected", true);
+  defaultOption3.setAttribute("disabled", true);
+  defaultOption3.textContent = "Pilih Mata Kuliah (MK)";
+  select1.appendChild(defaultOption3);
 
 
 
@@ -127,11 +133,18 @@ async function tambah_kelas() {
   select2.innerHTML =
     "<option selected disabled>Pilih Kelas</option>";
   select2.setAttribute("id", "id_kelas_kuliah[" + tambah + "]");
-  select2.setAttribute("class", "form-select form-control");
+  select2.setAttribute("class", "js-states form-control");
   select2.setAttribute("style", "width: 100%");
 
   select2.setAttribute("name", "id_kelas_kuliah[" + tambah + "]");
   select2.setAttribute("required", true);
+
+  var defaultOption2 = document.createElement("option");
+  defaultOption2.setAttribute("value", "");
+  defaultOption2.setAttribute("selected", true);
+  defaultOption2.setAttribute("disabled", true);
+  defaultOption2.textContent = "Pilih Kelas";
+  select2.appendChild(defaultOption2);
 
 
   fetch('list_mk.json')

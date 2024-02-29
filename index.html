@@ -105,18 +105,32 @@
                           sebelum mengisi :
                         </strong>
                       </span>
+                      <h5>
+
                       <code>
 
                         <ul>
                           <li>
-                            Perhatikan Nama MK dan Nama Kelas yang sudah dipilih sebelum di submit 
+                            Isilah inputan yang ada, sesuai dengan laporan/kendala bapak/ibu
                           </li>
                           <li>
-                            jika ada kendala/pertanyaan silahkan hubungi kontak help desk SIKOLA-V2 
+                            Perhatikan Nama MK dan Nama Kelas yang sudah dipilih sebelum di submit.
+                          </li>
+                          <li>
+                            Tgl Pertemuan/Terlaksana sesuai dengan presensi yang ada di SIKOLA-V2
+                          </li>
+                          <li>
+                            Jika Inputan/isian masih ada yang kosong kemungkinan laporan akan ditangguhkan, oleh karena itu pastikan semua inputan/isian terisi sebelum klik tombol Submit.
+                          </li>
+                          <li>
+                            jika masih ada kendala/pertanyaan silahkan hubungi kontak help desk SIKOLA-V2 
                             <a class="link" target="_blank" rel="noopener" href="https://wa.me/6282136882823">wa.me/6282136882823</a>
                           </li>
                         </ul>
                       </code>
+
+                    </h5>
+
                         
                     
                     <div class="example-container">
@@ -127,13 +141,13 @@
                           <div class="table-responsive">
 
                             <table class="table text-center" id="table_container">
-                              <thead class="">
-                                <td width="2%">No.</td>
-                                <td width="30%">MK (Mata Kuliah)</td>
-                                <td width="30%" class="">Nama Kelas</td>
-                                <td width="4%">Pertemuan Ke-</td>
-                                <td width="30%">Tgl Pertemuan/Terlaksana</td>
-                                <td width="4%"></td>
+                              <thead class="text-nowrap">
+                                <td width="4%">No.<code>*</code></td>
+                                <td width="30%">MK (Mata Kuliah)<code>*</code></td>
+                                <td width="30%" class="">Nama Kelas<code>*</code></td>
+                                <td width="3%">Pertemuan Ke-<code>*</code></td>
+                                <td width="30%">Tgl Pertemuan/Terlaksana<code>*</code></td>
+                                <td width="3%"></td>
                               </thead>
 
                               <tbody id="tbody_container">
@@ -207,7 +221,7 @@
 
 
                           <div class="col-md-12">
-                            <label for="inputAddress" class="form-label">Program Studi</label>
+                            <label for="inputAddress" class="form-label">Program Studi:<code>*</code></label>
 
                             <select required class="form-select form-control select" name="program_studi"
                               id="program_studi" title="Program Studi">
@@ -217,7 +231,7 @@
 
                           </div>
                           <div class="col-md-12">
-                            <label for="keterangan_kendala" class="form-label">Ketrangan Kendala :</label>
+                            <label for="keterangan_kendala" class="form-label">Keterangan Kendala :<code>*</code></label>
                             <textarea id="keterangan_kendala" name="keterangan_kendala" class="form-control"
                               placeholder="Keterangan kendala"></textarea>
                           </div>
@@ -225,7 +239,7 @@
 
 
                           <div class="col-md-12">
-                            <label for="no_wa" class="form-label">Kontak yang bisa Dihubungi (WA)</label>
+                            <label for="no_wa" class="form-label">Kontak yang bisa Dihubungi (WA):<code>*</code></label>
                             <input type="text" class="form-control" id="no_wa" name="no_wa" placeholder="No WA"
                               required>
 
@@ -250,12 +264,24 @@
                               <span class="alert-text" id="error_msg" name="error_msg"></span>
                             </div>
                           </div>
+
+                         
                           <div class="col-12 py-4 text-end">
+                            <div>
+                              <h5>
+
+                                
+                                <code>
+                                  *PASTIKAN SEMUA INPUTAN/ISIAN TERISI DAN SESUAI SEBELUM SUBMIT
+                                </code>
+                              </h5>
+                            </div>
                             <button id="submitBtn" class="btn btn-primary" type="submit">
                               <span id="spinner" class="spinner-border spinner-border-sm d-none" role="status"
                                 aria-hidden="true"></span>
                               <span id="btnText">Submit</span>
                             </button>
+                           
                           </div>
 
 
