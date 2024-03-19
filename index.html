@@ -98,16 +98,21 @@
 
                   <div class="card-body">
                       <span>
-                        <strong>
+                        <h5>
 
-                          Silahkan mengisi form berikut untuk melaporkan kendala presensi, harap diperhatikan catatan di
-                          bawah
-                          sebelum mengisi :
-                        </strong>
+                          <strong>
+                            
+                            Silahkan mengisi form berikut untuk melaporkan kendala presensi, harap diperhatikan catatan di
+                            bawah
+                            sebelum mengisi :
+                          </strong>
+                        </h5>
                       </span>
-                      <h5>
+                    <h5>
 
                       <code>
+
+                          HIMBAUAN PRESENSI
 
                         <ul>
                           <li>
@@ -123,11 +128,32 @@
                             Jika Inputan/isian masih ada yang kosong kemungkinan laporan akan ditangguhkan, oleh karena itu pastikan semua inputan/isian terisi sebelum klik tombol Submit.
                           </li>
                           <li>
+                            Tidak mengubah judul Info Matakuliah dengan nama MK nya, karena nama MK sudah ada di atas. Untuk gambarnya tidak apa2 jika diubah
+                          </li>
+                          <li>
+                            Pastikan presensi nya trpisah dengan grup MAHASISWA di Presensi Mahasiswa dan grup DOSEN di Presensi Pengampu Mata Kuliah (jangan digabung).
+
+                          </li>
+                          <li>
+                            Nama presensinya jangan di ubah biarkan saja secara default Presensi Mahasiswa dan Presensi Pengampu Mata Kuliah
+                          </li>
+                          <li>
+                            Pastikan presensinya jangan Double dengan melihat filter pencarian Sessions: All/Semua (berlaku untuk kelas/MK yang memang harusnya tidak boleh double tanggal presensinya/non-blok)
+                          </li>
+                          <li>
                             jika masih ada kendala/pertanyaan silahkan hubungi kontak help desk SIKOLA-V2 
                             <a class="link" target="_blank" rel="noopener" href="https://wa.me/6282136882823">wa.me/6282136882823</a>
                           </li>
                         </ul>
                       </code>
+
+                    </h5>
+
+                    <h5>
+                      <strong>
+
+                        Mohon diperhatikan bapak/ibu himbauan tersebut agar proses sinkronisasi presensi berjalan dengan lancar🙏
+                      </strong>
 
                     </h5>
 
@@ -143,6 +169,7 @@
                             <table class="table text-center" id="table_container">
                               <thead class="text-nowrap">
                                 <td width="4%">No.<code>*</code></td>
+                                <td width="4%">Jenis Kendala<code>*</code></td>
                                 <td width="30%">MK (Mata Kuliah)<code>*</code></td>
                                 <td width="30%" class="">Nama Kelas<code>*</code></td>
                                 <td width="3%">Pertemuan Ke-<code>*</code></td>
@@ -153,6 +180,16 @@
                               <tbody id="tbody_container">
                                 <tr>
                                   <td>1. </td>
+                                  <td>
+                                    <select style="width: 100%;" class="js-states form-control select" name="jenis_kendala[1]"
+                                      id="jenis_kendala[1]" title="jenis_kendala" required>
+                                      <option value="Pilih Jenis Kendala" selected>Pilih Jenis Kendala</option>
+                                      <option value="BELUM MASUK/TERISI DI MONITORING NEOSIA">BELUM MASUK/TERISI DI MONITORING NEOSIA</option>
+                                      <option value="PRESENSI DOUBLE/TERCONTRENG LEBIH DARI ANGKA 1 (ANGKA 2/3/4/etc..)">PRESENSI DOUBLE/TERCONTRENG LEBIH DARI ANGKA 1 (ANGKA 2/3/4/etc..)</option>
+                                    </select>
+
+
+                                  </td>
                                   <td>
                                     <select style="width: 100%;" class="js-states form-control select" name="kode_mk[1]"
                                       id="kode_mk[1]" title="kode_mk" required>
@@ -173,25 +210,10 @@
 
                                   </td>
                                   <td>
-                                    <select style="width: 100%;" class="js-states form-control" name="pertemuan_ke[1]"
+                                    <select style="width: 100%;" class="js-states form-control select" name="pertemuan_ke[1]"
                                       id="pertemuan_ke[1]" title="pertemuan_ke" required>
-                                      <option value="" selected disabled>Pilih Pertemuan Ke-</option>
-                                      <option value="1">1</option>
-                                      <option value="2">2</option>
-                                      <option value="3">3</option>
-                                      <option value="4">4</option>
-                                      <option value="5">5</option>
-                                      <option value="6">6</option>
-                                      <option value="7">7</option>
-                                      <option value="8">8</option>
-                                      <option value="9">9</option>
-                                      <option value="10">10</option>
-                                      <option value="11">11</option>
-                                      <option value="12">12</option>
-                                      <option value="13">13</option>
-                                      <option value="14">14</option>
-                                      <option value="15">15</option>
-                                      <option value="16">16</option>
+                                      <option value=""selected disabled>Pilih Pertemuan Ke-</option>
+                                      
 
 
                                     </select>
@@ -230,11 +252,11 @@
                             </select>
 
                           </div>
-                          <div class="col-md-12">
+                          <!-- <div class="col-md-12">
                             <label for="keterangan_kendala" class="form-label">Keterangan Kendala :<code>*</code></label>
                             <textarea id="keterangan_kendala" name="keterangan_kendala" class="form-control"
                               placeholder="Keterangan kendala"></textarea>
-                          </div>
+                          </div> -->
 
 
 

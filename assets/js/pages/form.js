@@ -106,6 +106,16 @@ var tambah = 1;
 console.log(tambah);
 
 
+let selectpertemuan = document.getElementById("pertemuan_ke[1]")
+
+for (var i = 1; i <= 50; i++) {
+  var option = document.createElement("option");
+  option.setAttribute("value", i);
+  option.textContent = i;
+  selectpertemuan.appendChild(option);
+}
+
+
 async function tambah_kelas() {
 
 
@@ -229,7 +239,7 @@ async function tambah_kelas() {
   defaultOption.textContent = "Pilih Pertemuan Ke-";
   select3.appendChild(defaultOption);
 
-  for (var i = 1; i <= 16; i++) {
+  for (var i = 1; i <= 50; i++) {
     var option = document.createElement("option");
     option.setAttribute("value", i);
     option.textContent = i;
@@ -261,6 +271,30 @@ async function tambah_kelas() {
   icon.innerHTML = "delete_outline";
   button.append(icon);
 
+
+  var selectjenis_kendala = document.createElement("select");
+
+  selectjenis_kendala.setAttribute("id", "jenis_kendala[" + tambah + "]");
+  selectjenis_kendala.setAttribute("class", "js-states form-control");
+  selectjenis_kendala.setAttribute("style", "width: 100%");
+  selectjenis_kendala.setAttribute("name", "jenis_kendala[" + tambah + "]");
+  selectjenis_kendala.setAttribute("required", true);
+
+
+  var defaultOptionjenis = document.createElement("option");
+  defaultOptionjenis.setAttribute("value", "BELUM MASUK/TERISI DI MONITORING NEOSIA");
+  defaultOptionjenis.textContent = "BELUM MASUK/TERISI DI MONITORINGG NEOSIA";
+  var defaultOptionjenis3 = document.createElement("option");
+  defaultOptionjenis3.setAttribute("value", "");
+  defaultOptionjenis3.setAttribute("selected", true);
+  defaultOptionjenis3.textContent = "Pilih Jenis Kendala"
+  var defaultOptionjenis2 = document.createElement("option");
+  defaultOptionjenis2.setAttribute("value", "PRESENSI DOUBLE/TERCONTRENG LEBIH DARI ANGKA 1 (ANGKA 2/3/4/etc..)");
+  defaultOptionjenis2.textContent = "PRESENSI DOUBLE/TERCONTRENG LEBIH DARI ANGKA 1 (ANGKA 2/3/4/etc..)";
+  selectjenis_kendala.appendChild(defaultOptionjenis);
+  selectjenis_kendala.appendChild(defaultOptionjenis2);
+  selectjenis_kendala.appendChild(defaultOptionjenis3);
+
   var row = table.insertRow(-1);
   var cell1 = row.insertCell(0);
   var cell2 = row.insertCell(1);
@@ -268,14 +302,16 @@ async function tambah_kelas() {
   var cell4 = row.insertCell(3);
   var cell5 = row.insertCell(4);
   var cell6 = row.insertCell(5);
+  var cell7 = row.insertCell(6);
 
 
   // cell1.innerHTML = "1.";
-  cell2.appendChild(select1);
-  cell3.appendChild(select2);
-  cell4.appendChild(select3);
-  cell5.appendChild(input);
-  cell6.appendChild(button);
+  cell2.appendChild(selectjenis_kendala);
+  cell3.appendChild(select1);
+  cell4.appendChild(select2);
+  cell5.appendChild(select3);
+  cell6.appendChild(input);
+  cell7.appendChild(button);
 
 
 
@@ -283,6 +319,97 @@ async function tambah_kelas() {
 
 }
 
+
+
+
+
+
+function reindex_container() {
+  var nomor_tabel_lokasi;
+
+  console.log(tambah);
+
+
+  const ids = document.querySelectorAll(
+    "#tbody_container tr > td:nth-child(1)"
+  );
+  ids.forEach((e, i) => {
+    e.innerHTML = i + 1 + ".";
+    nomor_tabel_lokasi = i + 1;
+  });
+
+
+  $("#tbody_container tr > td:nth-child(2) select").select2({
+
+  });
+  $("#tbody_container tr > td:nth-child(3) select").select2({
+
+  });
+  $("#tbody_container tr > td:nth-child(4) select").select2({
+
+  });
+  $("#tbody_container tr > td:nth-child(5) select").select2({
+
+  });
+  $("#tbody_container tr > td:nth-child(6) input").flatpickr({
+
+  });
+
+
+}
+
+function delete_container(r) {
+  var table = r.parentNode.parentNode.rowIndex;
+  document.getElementById("table_container").deleteRow(table);
+  tambah--;
+
+  var input1 = document.querySelectorAll(
+    "#tbody_container tr td:nth-child(5) select"
+  );
+  for (var i = 0; i < input1.length; i++) {
+    input1[i].id = "pertemuan_ke[" + (i + 1) + "]";
+    input1[i].name = "pertemuan_ke[" + (i + 1) + "]";
+  }
+  
+  var selectjenis = document.querySelectorAll(
+    "#tbody_container tr td:nth-child(2) select"
+  );
+  for (var i = 0; i < selectjenis.length; i++) {
+    selectjenis[i].id = "jenis_kendala[" + (i + 1) + "]";
+    selectjenis[i].name = "jenis_kendala[" + (i + 1) + "]";
+  }
+
+
+
+  var select1 = document.querySelectorAll("#tbody_container tr td:nth-child(4) select");
+  for (var i = 0; i < select1.length; i++) {
+    select1[i].id = "id_kelas_kuliah[" + (i + 1) + "]";
+    select1[i].name = "id_kelas_kuliah[" + (i + 1) + "]";
+  }
+
+
+  var select2 = document.querySelectorAll("#tbody_container tr td:nth-child(3) select");
+  for (var i = 0; i < select2.length; i++) {
+    select2[i].id = "kode_mk[" + (i + 1) + "]";
+    select2[i].name = "kode_mk[" + (i + 1) + "]";
+  }
+  var select2 = document.querySelectorAll("#tbody_container tr td:nth-child(6) input");
+  for (var i = 0; i < select2.length; i++) {
+    select2[i].id = "tanggal_terlaksana[" + (i + 1) + "]";
+    select2[i].name = "tanggal_terlaksana[" + (i + 1) + "]";
+  }
+
+
+
+  var button = document.querySelectorAll(
+    "#tbody_container tr td:nth-child(7) button"
+  );
+  for (var i = 0; i < button.length; i++) {
+    button[i].id = "deleterow" + (i + 1);
+  }
+
+  reindex_container();
+}
 
 function SubmitForm() {
 
@@ -318,6 +445,7 @@ function SubmitForm() {
 
 
   var pertemuan_ke = [];
+  var jenis_kendala = [];
   var tanggal_terlaksana = [];
 
   for (var i = 0; i < tambah; i++) {
@@ -334,11 +462,13 @@ function SubmitForm() {
 
 
     pertemuan_ke[i] = document.getElementById("pertemuan_ke[" + (i + 1) + "]").value;
+    jenis_kendala[i] = document.getElementById("jenis_kendala[" + (i + 1) + "]").value;
     tanggal_terlaksana[i] = document.getElementById("tanggal_terlaksana[" + (i + 1) + "]").value;
 
     formData.append('kode_mk[' + i + ']', kode_mk[i]);
     formData.append('id_kelas_kuliah[' + i + ']', id_kelas_kuliah[i]);
     formData.append('pertemuan_ke[' + i + ']', pertemuan_ke[i]);
+    formData.append('jenis_kendala[' + i + ']', jenis_kendala[i]);
     formData.append('tanggal_terlaksana[' + i + ']', tanggal_terlaksana[i]);
 
     
@@ -355,7 +485,7 @@ function SubmitForm() {
   const fakultas = selectedOption.getAttribute('data_fakultas');
 
   let program_studi = document.getElementById("program_studi").value;
-  let keterangan_kendala = document.getElementById("keterangan_kendala").value;
+  // let keterangan_kendala = document.getElementById("keterangan_kendala").value;
   let no_wa = document.getElementById("no_wa").value;
   no_wa = no_wa.replace(/[\s\-+]/g, '');
   no_wa = 'wa.me/'+ no_wa;
@@ -365,7 +495,7 @@ function SubmitForm() {
   formData.append("fakultas", fakultas);
   formData.append("program_studi", program_studi);
   formData.append("no_wa", no_wa);
-  formData.append("keterangan_kendala", keterangan_kendala);
+  // formData.append("keterangan_kendala", keterangan_kendala);
   formData.append("tambah", tambah);
 
 
@@ -418,81 +548,6 @@ function SubmitForm() {
 
   return false; // Prevent the form from submitting
 
-}
-
-
-
-function reindex_container() {
-  var nomor_tabel_lokasi;
-
-  console.log(tambah);
-
-
-  const ids = document.querySelectorAll(
-    "#tbody_container tr > td:nth-child(1)"
-  );
-  ids.forEach((e, i) => {
-    e.innerHTML = i + 1 + ".";
-    nomor_tabel_lokasi = i + 1;
-  });
-
-
-  $("#tbody_container tr > td:nth-child(2) select").select2({
-
-  });
-  $("#tbody_container tr > td:nth-child(3) select").select2({
-
-  });
-  $("#tbody_container tr > td:nth-child(5) input").flatpickr({
-
-  });
-
-
-}
-
-function delete_container(r) {
-  var table = r.parentNode.parentNode.rowIndex;
-  document.getElementById("table_container").deleteRow(table);
-  tambah--;
-
-  var input1 = document.querySelectorAll(
-    "#tbody_container tr td:nth-child(4) select"
-  );
-  for (var i = 0; i < input1.length; i++) {
-    input1[i].id = "pertemuan_ke[" + (i + 1) + "]";
-    input1[i].name = "pertemuan_ke[" + (i + 1) + "]";
-  }
-
-
-
-  var select1 = document.querySelectorAll("#tbody_container tr td:nth-child(3) select");
-  for (var i = 0; i < select1.length; i++) {
-    select1[i].id = "id_kelas_kuliah[" + (i + 1) + "]";
-    select1[i].name = "id_kelas_kuliah[" + (i + 1) + "]";
-  }
-
-
-  var select2 = document.querySelectorAll("#tbody_container tr td:nth-child(2) select");
-  for (var i = 0; i < select2.length; i++) {
-    select2[i].id = "kode_mk[" + (i + 1) + "]";
-    select2[i].name = "kode_mk[" + (i + 1) + "]";
-  }
-  var select2 = document.querySelectorAll("#tbody_container tr td:nth-child(5) input");
-  for (var i = 0; i < select2.length; i++) {
-    select2[i].id = "tanggal_terlaksana[" + (i + 1) + "]";
-    select2[i].name = "tanggal_terlaksana[" + (i + 1) + "]";
-  }
-
-
-
-  var button = document.querySelectorAll(
-    "#tbody_container tr td:nth-child(5) button"
-  );
-  for (var i = 0; i < button.length; i++) {
-    button[i].id = "deleterow" + (i + 1);
-  }
-
-  reindex_container();
 }
 
 $('#no_wa').inputmask({
