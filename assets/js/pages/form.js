@@ -291,9 +291,9 @@ async function tambah_kelas() {
   var defaultOptionjenis2 = document.createElement("option");
   defaultOptionjenis2.setAttribute("value", "PRESENSI DOUBLE/TERCONTRENG LEBIH DARI ANGKA 1 (ANGKA 2/3/4/etc..)");
   defaultOptionjenis2.textContent = "PRESENSI DOUBLE/TERCONTRENG LEBIH DARI ANGKA 1 (ANGKA 2/3/4/etc..)";
+  selectjenis_kendala.appendChild(defaultOptionjenis3);
   selectjenis_kendala.appendChild(defaultOptionjenis);
   selectjenis_kendala.appendChild(defaultOptionjenis2);
-  selectjenis_kendala.appendChild(defaultOptionjenis3);
 
   var row = table.insertRow(-1);
   var cell1 = row.insertCell(0);
